@@ -1,0 +1,97 @@
+@import "../components/bootstrap/scss/bootstrap";
+
+/*
+barra lateral e menu topo #353535
+fundo da logo #282828
+cor do texto box "messages" #7a7a7a
+cor da borda do item menu "settings" #fc4236
+cor da borda do item menu "Analytics" #ddbe10
+cor da borda do item menu "Messages" #09aac7
+cor da borda do item menu "Dashboard" #07c638
+*/
+
+.sidebar {
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -70%;
+    background-color: #3B3B3B;
+    z-index: 1001;
+    transition: left .3s;
+    .sidebar-header {
+        width: 100%;
+        background-color: #282828;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav {
+        flex-direction: column;
+        border-bottom: 1px solid #525252;
+        .nav-item {
+            padding: 2em;
+            border-bottom: 1px solid #000;
+        }
+        .nav-item:not(:first-child) {
+            border-top: 1px solid #525252;
+        }
+        .nav-item-home {
+            border-left: 5px solid #07c638;
+            a {
+                color:#FFF;
+            }            
+        }
+        .nav-item-analytics {
+            border-left: 5px solid #ddbe10;
+        }
+        .nav-item-messages {
+            border-left: 5px solid #09aac7;
+        }
+        .nav-item-settings {
+            border-left: 5px solid #fc4236;
+        }
+        .nav-item-link {
+            color: #7a7a7a;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            i {
+                font-size: 3em;
+            }
+            .notify {
+                background: red;
+                color: #fff;
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-left:32%;
+                margin-top:-3%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.opened-side-menu {
+    &:after {
+        content: "";
+        position: fixed;
+        top:0;
+        left:0;
+        right: 0;
+        bottom:0;
+        background-color: rgba(0, 0, 0, 0.5)
+    }
+    .sidebar {
+        left: 0;
+    }
+}

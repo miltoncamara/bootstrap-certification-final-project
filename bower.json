@@ -1,0 +1,25 @@
+{
+  "name": "project",
+  "description": "projeto final do curso certificação Bootstrap",
+  "main": "index.js",
+  "authors": [
+    "Keven Jesus"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "curso",
+    "certificação",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/kevenjesus/projeto-final-certificacao-bootstrap",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}
