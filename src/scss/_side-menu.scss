@@ -22,10 +22,28 @@
         .nav-item {
             padding: 2em;
             border-bottom: 1px solid #000;
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &:hover {
+                cursor: pointer;
+                @extend .active;
+            }
         }
         .active {
             background-color: #353535;
-        }        
+            a {
+                color: #FFF;
+            }
+            > i {
+                position: absolute;
+                right: 0;
+                top: 13%;
+                color: #FFF;
+            }
+        }
         .nav-item:not(:first-child) {
             border-top: 1px solid #525252;
         }
@@ -63,13 +81,16 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                margin-left: 32%;
+                margin-left: 20%;
                 margin-top: -3%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
         }
+    }
+    @include media-breakpoint-up('lg') {
+        left: 0;
     }
 }
 

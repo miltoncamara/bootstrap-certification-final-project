@@ -1,0 +1,27 @@
+.card {
+    display: block;
+    position: inherit;
+    border:0;
+    @include media-breakpoint-up('xl') {
+        min-height: 600px;
+    }
+    @include media-breakpoint-up('lg') {
+        min-height: 450px;
+    }
+    .card-header {
+        background-color: #FFF;
+        border:0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            color:#7a7a7a;
+            font-size: 1em;
+            font-weight: 100;
+        }
+    }
+}
+.btn-custom {
+    color:#ccc;
+    font-weight: 100;
+}

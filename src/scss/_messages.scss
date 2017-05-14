@@ -1,0 +1,40 @@
+.messages-box {
+    display: flex;
+    flex-direction: row;
+    &:not(:first-child) {
+        margin-top:15px;
+    }
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        .line {
+            width: 2px;
+            background: #CCC;
+            height: 50px;
+            position: relative;
+            left: 18px;
+            top: 50%;
+        }
+        .content-image {
+            img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        .content-box {
+            padding: 0 10px;
+            h3 {
+                font-size: 18px;
+                i {
+                    color: #7a7a7a;
+                    font-size: 11px;
+                    vertical-align: middle;
+                }
+            }
+            p {
+                font-size: 12px;
+                color: #7a7a7a;
+            }
+        }
+    }
+}

@@ -1,40 +1,38 @@
 @import "../components/bootstrap/scss/bootstrap";
 @import "side-menu";
 @import "header";
-/*
-barra lateral e menu topo #353535
-fundo da logo #282828
-cor do texto box "messages" #7a7a7a
-cor da borda do item menu "settings" #fc4236
-cor da borda do item menu "Analytics" #ddbe10
-cor da borda do item menu "Messages" #09aac7
-cor da borda do item menu "Dashboard" #07c638
-*/
-html, body {
+@import "messages";
+@import "main";
+
+html,
+body {
     background-color: #f7f7f9;
 }
+
 body {
-    padding-top:70px;
+    padding-top: 70px;
     main {
-        padding:10px;
+        padding: 10px;
     }
 }
-.card {
-    border:0;
-    .card-header {
-        background-color: #FFF;
-        border:0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1 {
-            color:#7a7a7a;
-            font-size: 1em;
-            font-weight: 100;
-        }
+
+.container {
+    position: relative;
+    margin-left: 0 0;
+    padding: 0 0;
+    width: 100%;
+}
+
+@include media-breakpoint-up('sm') {
+    .container {
+        width: 100%;
     }
 }
-.btn-custom {
-    color:#ccc;
-    font-weight: 100;
+
+@include media-breakpoint-up('lg') {
+    .container {
+        width: 80%;
+        margin-left: 200px;
+        ;
+    }
 }

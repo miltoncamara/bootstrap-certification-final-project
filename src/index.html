@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Projeto final: Certificacão Bootstrap</title>
+	<title>Projeto Final: Certificacão Bootstrap</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/png" href="img/logo.png" />
 </head>
 
 <body>
-	<div>
-		<nav>
-			<div class="sidebar">
-				<div class="sidebar-header">
-					<img src="img/logo.png" alt="">
-				</div>
-				<ul class="nav">
-					<li class="nav-item nav-item-home active">
-						<a href="#" class="nav-item-link">
-							<i class="fa fa-home"></i> Dashboard
-						</a>
-					</li>
-					<li class="nav-item nav-item-messages">
-						<a href="#" class="nav-item-link">
-							<i class="fa fa-envelope-o"></i>
-							<span class="notify">2</span> Messages
-						</a>
-					</li>
-					<li class="nav-item nav-item-analytics">
-						<a href="#" class="nav-item-link">
-							<i class="fa fa-line-chart"></i> Analytics
-						</a>
-					</li>
-					<li class="nav-item nav-item-settings">
-						<a href="#" class="nav-item-link">
-							<i class="fa fa-cog"></i> Settings
-						</a>
-					</li>
-				</ul>
+	<nav>
+		<div class="sidebar">
+			<div class="sidebar-header">
+				<img src="img/logo.png" alt="">
 			</div>
-		</nav>
-		<header>
-			<div class="header">
+			<ul class="nav">
+				<li class="nav-item nav-item-home active">
+					<a href="#" class="nav-item-link">
+						<i class="fa fa-home"></i> Dashboard
+					</a>
+					<i class="fa fa-caret-left"></i>
+				</li>
+				<li class="nav-item nav-item-messages">
+					<a href="#" class="nav-item-link">
+						<i class="fa fa-envelope-o"></i>
+						<span class="notify">2</span> Messages
+					</a>
+				</li>
+				<li class="nav-item nav-item-analytics">
+					<a href="#" class="nav-item-link">
+						<i class="fa fa-line-chart"></i> Analytics
+					</a>
+				</li>
+				<li class="nav-item nav-item-settings">
+					<a href="#" class="nav-item-link">
+						<i class="fa fa-cog"></i> Settings
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<header>
+		<div class="header">
+			<div class="container">
 				<div class="toogle-sidebar">
 					<a href="#">
 						<i class="fa fa-bars"></i>
@@ -51,6 +53,7 @@
 				<div class="user-menu">
 					<ul class="list-unstyled">
 						<li>
+							<img src="https://placeholdit.imgix.net/~text?w=35&h=35" class="rounded-circle hidden-md-down" />
 							<a href="#">
 								Milton Câmara
 								<i class="fa fa-caret-down"></i>
@@ -69,52 +72,105 @@
 					</ul>
 				</div>
 			</div>
-		</header>
-		<main>
+		</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-6 mt-md-0 mt-0">
-					<article>
-						<div class="card">
-							<div class="card-header">
-								<h1>VISITORS:</h1>
-								<button type="button" class="btn btn-secondary btn-custom btn-sm">Days <i class="fa fa-caret-down"></i></button>
-							</div>
-							<div class="card-block">
-								<img class="img-fluid" src="img/graph-visitors.png" alt="Card image cap">
-							</div>
+				<div class="col-sm-12 col-md-12 col-lg-6 mt-md-0 mt-0">
+					<div class="card card-visitors">
+						<div class="card-header">
+							<h1>VISITORS:</h1>
+							<button type="button" class="btn btn-secondary btn-custom btn-sm">Days <i class="fa fa-caret-down"></i></button>
 						</div>
-					</article>
+						<div class="card-block">
+							<canvas id="visitors-chart"></canvas>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-12 col-md-6 mt-md-0 mt-2">
-					<article>
-						<div class="card">
-							<div class="card-header">
-								<h1>SUBSCRIPTIONS:</h1>
-								<button type="button" class="btn btn-secondary btn-custom btn-sm">Months <i class="fa fa-caret-down"></i></button>
-							</div>
-							<div class="card-block">
-								<img class="img-fluid" src="img/graph-subscriptions.png" alt="Card image cap">
-							</div>
+				<div class="col-sm-12 col-md-12 col-lg-6 mt-2 mt-md-2">
+					<div class="card card-subs">
+						<div class="card-header">
+							<h1>SUBSCRIPTIONS:</h1>
+							<button type="button" class="btn btn-secondary btn-custom btn-sm">Months <i class="fa fa-caret-down"></i></button>
 						</div>
-					</article>
+						<div class="card-block">
+							<canvas id="subs-chart"></canvas>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-12 col-md-6 mt-md-2 mt-2">
-					<article>
-						<div class="card">
-							<div class="card-header">
-								<h1>OVERVIEW:</h1>
-							</div>
-							<div class="card-block">
-								<img class="img-fluid" src="img/grpah-overview.png" alt="Card image cap">
+				<div class="col-sm-12 col-md-12 col-lg-6 mt-2 mt-md-2">
+					<div class="card card-messages">
+						<div class="card-header">
+							<h1>MESSAGES:</h1>
+							<div class="tools">
+								<button type="button" class="btn btn-secondary btn-custom btn-sm" disabled="disabled"><i class="fa fa-caret-down"></i></button>
+								<button type="button" class="btn btn-secondary btn-custom btn-sm"><i class="fa fa-caret-down"></i></button>
 							</div>
 						</div>
-					</article>
-				</div>								
+						<div class="card-block">
+							<div class="messages-box">
+								<div class="timeline">
+									<div class="line"></div>
+									<div class="content-image">
+										<img src="https://placeholdit.imgix.net/~text?w=35&h=35" class="rounded-circle" />
+									</div>
+									<div class="content-box">
+										<h3>Jane Doe <i class="fa fa-cog"></i></h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									</div>
+								</div>
+							</div>
+							<div class="messages-box">
+								<div class="timeline">
+									<div class="line"></div>
+									<div class="content-image">
+										<img src="https://placeholdit.imgix.net/~text?w=35&h=35" class="rounded-circle" />
+									</div>
+									<div class="content-box">
+										<h3>Jane Doe <i class="fa fa-cog"></i></h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									</div>
+								</div>
+							</div>
+							<div class="messages-box">
+								<div class="timeline">
+									<div class="line"></div>
+									<div class="content-image">
+										<img src="https://placeholdit.imgix.net/~text?w=35&h=35" class="rounded-circle" />
+									</div>
+									<div class="content-box">
+										<h3>Jane Doe <i class="fa fa-cog"></i></h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-6 mt-2 mt-md-2">
+					<div class="card">
+						<div class="card-header">
+							<h1>OVERVIEW:</h1>
+						</div>
+						<div class="card-block">
+							<div class="row">
+								<div class="col-sm-12 col-md-6">
+									<canvas id="overview-chart-1"></canvas>
+								</div>
+								<div class="col-sm-12 col-md-6">
+									<canvas id="overview-chart-2"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</main>
-	</div>
-	<script src="js/main.js"></script>
-	<script src="js/app.js"></script>
+	</main>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+	<script src="js/vendors.min.js"></script>
+	<script src="js/main.min.js"></script>
 </body>
 
 </html>

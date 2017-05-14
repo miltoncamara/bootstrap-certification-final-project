@@ -40,28 +40,30 @@ gulp.task("html", function () {
 		.pipe(browserSync.stream());
 });
 
-/* Task minify js */
-gulp.task("js", ['cache:js'], function () {
-	return gulp.src("./src/js/app.js")
-		.pipe(uglify())
+/* Task create app.js */
+gulp.task("main-js", ['cache:js'], function () {
+	return gulp.src("./src/js/**/*")
+		//.pipe(uglify())
+		.pipe(concat("main.min.js"))
 		.pipe(gulp.dest("./dist/js"))
 		.pipe(browserSync.stream());
 });
 
-/* Task concat js */
-gulp.task("concat-js", function () {
+/* Task create main.js */
+gulp.task("vendors-js", function () {
 	return gulp.src([
 			'./src/components/jquery/dist/jquery.js',
 			'./src/components/tether/dist/js/tether.js',
 			'./src/components/bootstrap/dist/js/bootstrap.js'
 		])
-		.pipe(concat("main.js"))
+		.pipe(uglify())
+		.pipe(concat("vendors.min.js"))
 		.pipe(gulp.dest("./dist/js"))
 
 });
 
 /* Task server local */
-gulp.task("server", ["sass", "html", "js", "concat-js"], function () {
+gulp.task("server", ["sass", "html", "main-js", "vendors-js"], function () {
 	browserSync.init({
 		server: {
 			baseDir: "./dist"
@@ -71,6 +73,6 @@ gulp.task("server", ["sass", "html", "js", "concat-js"], function () {
 	/* Watch */
 	gulp.watch("./src/scss/**/*.scss", ['sass']);
 	gulp.watch("./src/components/bootstrap/scss/**/*.scss", ['sass']);
-	gulp.watch("./src/js/**/*.js", ['js']);
+	gulp.watch("./src/js/**/*.js", ['main-js']);
 	gulp.watch("./src/index.html", ['html']);
 });
