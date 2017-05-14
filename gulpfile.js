@@ -9,11 +9,11 @@ var del = require("del");
 
 /* Tasks cached */
 gulp.task("cache:css", function () {
-	del("./dist/css/style.css")
+	del("./../bootstrap-certification/css/style.css")
 });
 
 gulp.task("cache:js", function () {
-	del("./dist/js/app.js")
+	del("./../bootstrap-certification/js/**/*")
 });
 
 /* Task compile scss to css */
@@ -26,7 +26,7 @@ gulp.task("sass", ['cache:css'], function () {
 			title: "erro scss",
 			message: "<%= error.message %>"
 		}))
-		.pipe(gulp.dest("./dist/css"))
+		.pipe(gulp.dest("./../bootstrap-certification/css"))
 		.pipe(browserSync.stream());
 });
 
@@ -36,16 +36,17 @@ gulp.task("html", function () {
 		.pipe(htmlmin({
 			collapseWhitespace: true
 		}))
-		.pipe(gulp.dest("./dist"))
+		.pipe(gulp.dest("./../bootstrap-certification"))
 		.pipe(browserSync.stream());
 });
 
 /* Task create app.js */
 gulp.task("main-js", ['cache:js'], function () {
 	return gulp.src("./src/js/**/*")
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(concat("main.min.js"))
-		.pipe(gulp.dest("./dist/js"))
+		//.pipe(gulp.dest("./dist/js"))
+		.pipe(gulp.dest("./../bootstrap-certification/js"))
 		.pipe(browserSync.stream());
 });
 
@@ -58,8 +59,8 @@ gulp.task("vendors-js", function () {
 		])
 		.pipe(uglify())
 		.pipe(concat("vendors.min.js"))
-		.pipe(gulp.dest("./dist/js"))
-
+		//.pipe(gulp.dest("./dist/js"))
+		.pipe(gulp.dest("./../bootstrap-certification/js"))
 });
 
 /* Task server local */
@@ -76,3 +77,5 @@ gulp.task("server", ["sass", "html", "main-js", "vendors-js"], function () {
 	gulp.watch("./src/js/**/*.js", ['main-js']);
 	gulp.watch("./src/index.html", ['html']);
 });
+
+gulp.task("publish", ["sass", "html", "main-js", "vendors-js"], function () {});
