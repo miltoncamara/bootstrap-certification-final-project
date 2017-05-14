@@ -9,11 +9,15 @@ var del = require("del");
 
 /* Tasks cached */
 gulp.task("cache:css", function () {
-	del("./../bootstrap-certification/css/style.css")
+	del("./../bootstrap-certification/css/style.css", {
+		force: true
+	});
 });
 
 gulp.task("cache:js", function () {
-	del("./../bootstrap-certification/js/**/*")
+	del("./../bootstrap-certification/js/**/*", {
+		force: true
+	})
 });
 
 /* Task compile scss to css */
@@ -67,7 +71,7 @@ gulp.task("vendors-js", function () {
 gulp.task("server", ["sass", "html", "main-js", "vendors-js"], function () {
 	browserSync.init({
 		server: {
-			baseDir: "./dist"
+			baseDir: "./../bootstrap-certification"
 		}
 	});
 
