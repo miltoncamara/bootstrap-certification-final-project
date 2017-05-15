@@ -1,5 +1,5 @@
 # BootDash - Projeto Final de Certificação Bootstrap
-## Este repositório contém o projeto final do curto de certificação bootstrap ministrado pelo professore Keven. Para conclusão do curso foi solicitado a criação de um um Dashboard em cima do framework Bootstrap. Segue abaixo alguns dos conceitos e técnicas utilizadas para o desenlvimento do projeto:
+## Este repositório contém o projeto final do curso de certificação bootstrap ministrado pelo professor [Keven](https://github.com/kevenjesus). Para conclusão do mesmo desenvolvi a tela inicial de um Dashboard utilizando alguns componentes de forma nativa da biblioteca Bootstrap 4. Segue abaixo algumas técnicas e linguagens utilizadas para o desenlvimento do projeto:
 * Linguagens e Frameworks
     * HTML 5
     * SASS
@@ -28,3 +28,4 @@ gulp server (utilize este comando somente em ambiente de desenvolvimento)
 ```
 gulp publish (utilize este comando para publicar os arquivos em ambiente de produção)
 ```
+## Segue link da [Demo](http://www.mcamara.net/bootstrap-certification/)
