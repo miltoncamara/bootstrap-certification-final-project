@@ -4,6 +4,7 @@ var htmlmin = require("gulp-htmlmin");
 var notify = require("gulp-notify");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
+var rename = require("gulp-rename");
 var browserSync = require("browser-sync").create();
 var del = require("del");
 
@@ -23,13 +24,12 @@ gulp.task("cache:js", function () {
 /* Task compile scss to css */
 gulp.task("sass", ['cache:css'], function () {
 	return gulp.src("./src/scss/style.scss")
-		.pipe(sass({
-			outPutStyle: 'compressed'
-		}))
+		.pipe(sass({outputStyle: 'compressed'}))
 		.on('error', notify.onError({
 			title: "erro scss",
 			message: "<%= error.message %>"
 		}))
+		.pipe(rename('style.min.css'))
 		.pipe(gulp.dest("./../bootstrap-certification/css"))
 		.pipe(browserSync.stream());
 });
@@ -44,7 +44,7 @@ gulp.task("html", function () {
 		.pipe(browserSync.stream());
 });
 
-/* Task create app.js */
+/* Task create main-js.js */
 gulp.task("main-js", ['cache:js'], function () {
 	return gulp.src("./src/js/**/*")
 		.pipe(uglify())

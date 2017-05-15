@@ -25,14 +25,13 @@ body {
 
 @include media-breakpoint-up('sm') {
     .container {
-        width: 100%;
+        width: 98%;
     }
 }
 
 @include media-breakpoint-up('lg') {
     .container {
-        width: 80%;
+        width: 78%;
         margin-left: 200px;
-        ;
     }
 }
