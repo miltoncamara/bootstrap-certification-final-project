@@ -16,7 +16,7 @@ Abaixo podemos ver como o projeto se adequa nos principais devices.
 ## Para utilizar o projeto será necessário seguir os seguintes passos abaixo
 
 ```
-git clone https://github.com/miltoncamara/bootstrap-certification.git
+git clone https://github.com/miltoncamara/bootstrap-certification-final-project.git
 ```
 ```
 npm install
